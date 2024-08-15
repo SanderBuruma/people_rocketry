@@ -49,3 +49,15 @@ def step(context: Context, engine, nr:int):
 @then('the rocket masses {mass:f} tons in total')
 def step(context: Context, mass: float):
   assert context.rocket.mass == mass
+
+@then('the rocket has a thrust of {thrust:d}kN')
+def step(context: Context, thrust: int):
+  assert context.rocket.thrust == thrust
+
+@then('the rocket has dV of over {dv:d}m/s^2')
+def step(context: Context, dv: int):
+  assert context.rocket.dv > dv
+
+@then('the rocket has a TWR of {twr:f}')
+def step(context: Context, twr: float):
+  assert context.rocket.twr == twr

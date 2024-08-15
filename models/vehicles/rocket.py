@@ -30,7 +30,7 @@ class Rocket(Entity):
   
   @property
   def dv(self): 
-    return math.e ** (self.mass / self.dry_mass) * self.exhaust_velocity
+    return math.log((self.mass / self.dry_mass),math.e) * self.exhaust_velocity
     
   @property
   def fuel_consumption_rate(self): return sum(engine.fuel_flow_rate for engine in self.engines)
@@ -57,3 +57,9 @@ class Rocket(Entity):
   def dry_mass(self): 
     """The mass of the rocket without fuel"""
     return self.structural_mass + sum(tank.dry_mass for tank in self.fuel_tanks) + sum(engine.mass for engine in self.engines) + (self.payload.mass if self.payload else 0)
+  
+  @property
+  def flow_rate(self): return sum(engine.fuel_flow_rate for engine in self.engines)
+
+  @property
+  def twr(self): return self.thrust / self.mass
