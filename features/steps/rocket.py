@@ -28,7 +28,6 @@ def step(context: Context, nr: int, fuel_type: str, amount, dry_mass):
   
   pass
 
-# @given('there is an engine called {name} massing {mass:d} tons, thrust {thrust:d}kN, fuel {fuel_type}, flow rate {flow_rate:d}t/s')
 @given('there is an engine called {name} massing {mass:f} tons, thrust {thrust:d}kN, fuel {fuel_type}, flow rate {flow_rate:f}t/s')
 def step(context: Context, name: str, mass: float, thrust: int, fuel_type: str, flow_rate: float):
   if not context.fuel_types or not context.fuel_types.get(fuel_type, None):
