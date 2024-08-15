@@ -52,8 +52,8 @@ class Rocket(Entity):
   @property
   def mass(self): 
     """The mass of the rocket, including fuel"""
-    return self.structural_mass + sum(tank.mass for tank in self.fuel_tanks) + sum(engine.mass for engine in self.engines) + self.payload.mass if self.payload else 0
+    return self.structural_mass + sum(tank.mass for tank in self.fuel_tanks) + sum(engine.mass for engine in self.engines) + (self.payload.mass if self.payload else 0)
   @property
   def dry_mass(self): 
     """The mass of the rocket without fuel"""
-    return self.structural_mass + sum(tank.dry_mass for tank in self.fuel_tanks) + sum(engine.mass for engine in self.engines) + self.payload.mass if self.payload else 0
+    return self.structural_mass + sum(tank.dry_mass for tank in self.fuel_tanks) + sum(engine.mass for engine in self.engines) + (self.payload.mass if self.payload else 0)

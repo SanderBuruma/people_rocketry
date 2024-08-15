@@ -1,8 +1,10 @@
 import copy
 
+from models.vehicles.fuel_type import FuelType
+
 
 class Engine:
-  def __init__(self, name: str, thrust: float, mass: float, fuel_flow_rate: float):
+  def __init__(self, name: str, thrust: float, mass: float, fuel_flow_rate: float, fuel_type: FuelType):
     """
     :param thrust: The amount of thrust the engine produces, in kN
     :param mass: The mass of the engine, in tons
@@ -12,6 +14,7 @@ class Engine:
     self.thrust = thrust
     self.mass = mass
     self.fuel_flow_rate = fuel_flow_rate
+    self.fuel_type: FuelType = fuel_type
   
   def __str__(self):
     return self.name
